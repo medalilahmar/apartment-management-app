@@ -1,37 +1,78 @@
+<form [formGroup]="apartForm" (ngSubmit)="onSubmit()" class="custom-form">
+  <!-- Apartment Number -->
+  <div class="form-group">
+    <label>Apartment Number:</label>
+    <input type="text" formControlName="apartmentNumber" class="form-control">
+    <div *ngIf="apartForm.get('apartmentNumber')?.invalid && apartForm.get('apartmentNumber')?.touched" class="error-message">
+      ⚠ Le numéro d'appartement est obligatoire et doit être un nombre.
+    </div>
+  </div>
 
-<form class="form-inline" (ngSubmit)="onFormSubmit()" #f="ngForm">
-    <div class="row">
-      <div class="col">
-        <input type="number" class="form-control" placeholder="Apart Num" ngModel name="apartNum" required>
-      </div>
-      <div class="col">
-        <input type="number" class="form-control" placeholder="Floor Num" ngModel name="floorNum"  required>
-      </div>
+  <!-- Floor Number -->
+  <div class="form-group">
+    <label>Floor Number:</label>
+    <input type="text" formControlName="floorNumber" class="form-control">
+    <div *ngIf="apartForm.get('floorNumber')?.invalid && apartForm.get('floorNumber')?.touched" class="error-message">
+      ⚠ Le numéro d'étage est obligatoire et doit être un nombre.
     </div>
-    <div class="row">
-      <div class="col">
-        <input type="number" class="form-control" placeholder="Surface" ngModel  name="surface"  required>
-      </div>
-      <div class="col">
-        <input type="number" class="form-control" placeholder="Surface Terrace" ngModel  name="surfaceterrace" required>
-      </div>
+  </div>
+
+  <!-- Surface -->
+  <div class="form-group">
+    <label>Surface:</label>
+    <input type="text" formControlName="surface" class="form-control">
+    <div *ngIf="apartForm.get('surface')?.invalid && apartForm.get('surface')?.touched" class="error-message">
+      ⚠ La surface est obligatoire.
     </div>
-    <div class="row">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Category" ngModel  name="category" required>
-      </div>
-      <div class="col">
-        <input type="number" class="form-control" placeholder="Residence ID" ngModel  name="ResidenceId" required>
-      </div>
+  </div>
+
+  <!-- Terrace -->
+  <div class="form-group">
+    <label>Terrace:</label>
+    <div class="radio-group">
+      <label>
+        <input type="radio" formControlName="terrace" value="yes" (change)="onTerraceChange('yes')"> Yes
+      </label>
+      <label>
+        <input type="radio" formControlName="terrace" value="no" (change)="onTerraceChange('no')"> No
+      </label>
     </div>
-    <div class="row">
-      <div class="col">
-        <label>
-          <input type="checkbox" ngModel name="terrace"> Terrace
-        </label>
-      </div>
+  </div>
+
+  <!-- Surface Terrace -->
+  <div class="form-group">
+    <label>Surface Terrace:</label>
+    <input type="text" formControlName="surfaceTerrace" class="form-control">
+    <div *ngIf="apartForm.get('surfaceTerrace')?.invalid && apartForm.get('surfaceTerrace')?.touched" class="error-message">
+      ⚠ La surface de la terrasse est obligatoire si une terrasse est sélectionnée.
     </div>
-  
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  
+  </div>
+
+  <!-- Category -->
+  <div class="form-group">
+    <label>Category:</label>
+    <select formControlName="category" class="form-control">
+      <option value="S+1">S+1</option>
+      <option value="S+2">S+2</option>
+      <option value="S+3">S+3</option>
+    </select>
+    <div *ngIf="apartForm.get('category')?.invalid && apartForm.get('category')?.touched" class="error-message">
+      ⚠ Sélectionnez une catégorie.
+    </div>
+  </div>
+
+  <!-- Residence -->
+  <div class="form-group">
+    <label>Residence:</label>
+    <input type="text" formControlName="residence" class="form-control">
+    <div *ngIf="apartForm.get('residence')?.invalid && apartForm.get('residence')?.touched" class="error-message">
+      ⚠ Le champ résidence est obligatoire.
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="form-group button-group">
+    <button type="submit" class="btn-submit" [disabled]="apartForm.invalid">Add</button>
+    <button type="reset" class="btn-reset" (click)="apartForm.reset()">Reset</button>
+  </div>
+</form>

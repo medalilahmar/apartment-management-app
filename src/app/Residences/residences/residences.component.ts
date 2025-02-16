@@ -58,4 +58,5 @@ export class ResidencesComponent implements OnInit {
   }
 
 
+
 }

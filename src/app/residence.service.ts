@@ -8,10 +8,10 @@ import { Observable, of } from 'rxjs';
 export class ResidenceService {
 
     listResidences: Residence[]=[
-      {id:1,"locationShown": false,"name": "El fel","address":"Borj Cedria", "image":"../../assets/R1.jpeg", status: "Disponible"},
-       {id:2,"locationShown": false,"name": "El yasmine", "address":"Ezzahra","image":"../../assets/R2.jpeg", status: "Disponible" },
-       {id:3,"locationShown": false,"name": "El Arij", "address":"Rades","image":"../../assets/R3.jpeg", status: "Vendu"},
-       {id:4,"locationShown": false,"name": "El Anber","address":"inconnu", "image":"../../assets/R4.jpeg", status: "En Construction"}
+      {id:1,"locationShown": false,"name": "El fel","address":"Borj Cedria", "image":"../../assets/R1.png", status: "Disponible"},
+       {id:2,"locationShown": false,"name": "El yasmine", "address":"Ezzahra","image":"../../assets/R2.png", status: "Disponible" },
+       {id:3,"locationShown": false,"name": "El Arij", "address":"Rades","image":"../../assets/R3.png", status: "Vendu"},
+       {id:4,"locationShown": false,"name": "El Anber","address":"inconnu", "image":"../../assets/R4.jpg", status: "En Construction"}
      ];
 
      getResidences(): Observable<Residence[]> {

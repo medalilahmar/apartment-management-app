@@ -15,6 +15,8 @@ import { AddApartmentComponent } from './Apartments/add-apartment/add-apartment.
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ResidenceDetailsComponent } from './residence-details/residence-details.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -36,7 +38,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
