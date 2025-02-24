@@ -5,8 +5,8 @@
   <!-- Nom de la résidence -->
   <div class="mb-3">
     <label for="name" class="form-label">Name:</label>
-    <input id="name" formControlName="name" class="form-control" [ngClass]="{'is-invalid': residenceForm.get('name')?.invalid && residenceForm.get('name')?.touched}">
-    <div *ngIf="residenceForm.get('name')?.invalid && residenceForm.get('name')?.touched" class="invalid-feedback">
+    <input id="name" formControlName="name" class="form-control" [ngClass]="{'is-invalid': residenceForm.get('name')?.invalid && (residenceForm.get('name')?.touched || residenceForm.get('name')?.dirty)}">
+    <div *ngIf="residenceForm.get('name')?.invalid && (residenceForm.get('name')?.touched || residenceForm.get('name')?.dirty)" class="invalid-feedback">
       Name is required and must be at least 3 characters long.
     </div>
   </div>
@@ -14,8 +14,8 @@
   <!-- Adresse de la résidence -->
   <div class="mb-3">
     <label for="address" class="form-label">Address:</label>
-    <input id="address" formControlName="address" class="form-control" [ngClass]="{'is-invalid': residenceForm.get('address')?.invalid && residenceForm.get('address')?.touched}">
-    <div *ngIf="residenceForm.get('address')?.invalid && residenceForm.get('address')?.touched" class="invalid-feedback">
+    <input id="address" formControlName="address" class="form-control" [ngClass]="{'is-invalid': residenceForm.get('address')?.invalid && (residenceForm.get('address')?.touched || residenceForm.get('address')?.dirty)}">
+    <div *ngIf="residenceForm.get('address')?.invalid && (residenceForm.get('address')?.touched || residenceForm.get('address')?.dirty)" class="invalid-feedback">
       Address is required.
     </div>
   </div>
@@ -23,8 +23,8 @@
   <!-- URL de l'image -->
   <div class="mb-3">
     <label for="image" class="form-label">Image URL:</label>
-    <input id="image" formControlName="image" class="form-control" [ngClass]="{'is-invalid': residenceForm.get('image')?.invalid && residenceForm.get('image')?.touched}">
-    <div *ngIf="residenceForm.get('image')?.invalid && residenceForm.get('image')?.touched" class="invalid-feedback">
+    <input id="image" formControlName="image" class="form-control" [ngClass]="{'is-invalid': residenceForm.get('image')?.invalid && (residenceForm.get('image')?.touched || residenceForm.get('image')?.dirty)}">
+    <div *ngIf="residenceForm.get('image')?.invalid && (residenceForm.get('image')?.touched || residenceForm.get('image')?.dirty)" class="invalid-feedback">
       Image URL is required and must be a valid URL.
     </div>
   </div>
@@ -32,12 +32,12 @@
   <!-- Statut de la résidence -->
   <div class="mb-3">
     <label for="status" class="form-label">Status:</label>
-    <select id="status" formControlName="status" class="form-select" [ngClass]="{'is-invalid': residenceForm.get('status')?.invalid && residenceForm.get('status')?.touched}">
+    <select id="status" formControlName="status" class="form-select" [ngClass]="{'is-invalid': residenceForm.get('status')?.invalid && (residenceForm.get('status')?.touched || residenceForm.get('status')?.dirty)}">
       <option value="Disponible">Disponible</option>
       <option value="En Construction">En Construction</option>
       <option value="Vendu">Vendu</option>
     </select>
-    <div *ngIf="residenceForm.get('status')?.invalid && residenceForm.get('status')?.touched" class="invalid-feedback">
+    <div *ngIf="residenceForm.get('status')?.invalid && (residenceForm.get('status')?.touched || residenceForm.get('status')?.dirty)" class="invalid-feedback">
       Please select a valid status.
     </div>
   </div>
@@ -50,8 +50,8 @@
       <!-- Numéro de l'appartement -->
       <div class="mb-3">
         <label for="apartmentNumber-{{i}}" class="form-label">Apartment Number:</label>
-        <input id="apartmentNumber-{{i}}" formControlName="apartmentNumber" class="form-control" [ngClass]="{'is-invalid': apartment.get('apartmentNumber')?.invalid && apartment.get('apartmentNumber')?.touched}">
-        <div *ngIf="apartment.get('apartmentNumber')?.invalid && apartment.get('apartmentNumber')?.touched" class="invalid-feedback">
+        <input id="apartmentNumber-{{i}}" formControlName="apartmentNumber" class="form-control" [ngClass]="{'is-invalid': apartment.get('apartmentNumber')?.invalid && (apartment.get('apartmentNumber')?.touched || apartment.get('apartmentNumber')?.dirty)}">
+        <div *ngIf="apartment.get('apartmentNumber')?.invalid && (apartment.get('apartmentNumber')?.touched || apartment.get('apartmentNumber')?.dirty)" class="invalid-feedback">
           Apartment Number is required and must be a number.
         </div>
       </div>
@@ -59,8 +59,8 @@
       <!-- Numéro d'étage -->
       <div class="mb-3">
         <label for="floorNumber-{{i}}" class="form-label">Floor Number:</label>
-        <input id="floorNumber-{{i}}" formControlName="floorNumber" class="form-control" [ngClass]="{'is-invalid': apartment.get('floorNumber')?.invalid && apartment.get('floorNumber')?.touched}">
-        <div *ngIf="apartment.get('floorNumber')?.invalid && apartment.get('floorNumber')?.touched" class="invalid-feedback">
+        <input id="floorNumber-{{i}}" formControlName="floorNumber" class="form-control" [ngClass]="{'is-invalid': apartment.get('floorNumber')?.invalid && (apartment.get('floorNumber')?.touched || apartment.get('floorNumber')?.dirty)}">
+        <div *ngIf="apartment.get('floorNumber')?.invalid && (apartment.get('floorNumber')?.touched || apartment.get('floorNumber')?.dirty)" class="invalid-feedback">
           Floor Number is required and must be a number.
         </div>
       </div>
@@ -68,8 +68,8 @@
       <!-- Surface -->
       <div class="mb-3">
         <label for="surface-{{i}}" class="form-label">Surface:</label>
-        <input id="surface-{{i}}" formControlName="surface" class="form-control" [ngClass]="{'is-invalid': apartment.get('surface')?.invalid && apartment.get('surface')?.touched}">
-        <div *ngIf="apartment.get('surface')?.invalid && apartment.get('surface')?.touched" class="invalid-feedback">
+        <input id="surface-{{i}}" formControlName="surface" class="form-control" [ngClass]="{'is-invalid': apartment.get('surface')?.invalid && (apartment.get('surface')?.touched || apartment.get('surface')?.dirty)}">
+        <div *ngIf="apartment.get('surface')?.invalid && (apartment.get('surface')?.touched || apartment.get('surface')?.dirty)" class="invalid-feedback">
           Surface is required.
         </div>
       </div>
@@ -83,8 +83,8 @@
       <!-- Surface de la terrasse (conditionnelle) -->
       <div *ngIf="apartment.get('terrace')?.value" class="mb-3">
         <label for="surfaceTerrace-{{i}}" class="form-label">Surface Terrace:</label>
-        <input id="surfaceTerrace-{{i}}" formControlName="surfaceTerrace" class="form-control" [ngClass]="{'is-invalid': apartment.get('surfaceTerrace')?.invalid && apartment.get('surfaceTerrace')?.touched}">
-        <div *ngIf="apartment.get('surfaceTerrace')?.invalid && apartment.get('surfaceTerrace')?.touched" class="invalid-feedback">
+        <input id="surfaceTerrace-{{i}}" formControlName="surfaceTerrace" class="form-control" [ngClass]="{'is-invalid': apartment.get('surfaceTerrace')?.invalid && (apartment.get('surfaceTerrace')?.touched || apartment.get('surfaceTerrace')?.dirty)}">
+        <div *ngIf="apartment.get('surfaceTerrace')?.invalid && (apartment.get('surfaceTerrace')?.touched || apartment.get('surfaceTerrace')?.dirty)" class="invalid-feedback">
           Surface Terrace is required.
         </div>
       </div>

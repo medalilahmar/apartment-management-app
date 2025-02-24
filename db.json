@@ -1,0 +1,59 @@
+{
+    "residences": [
+      {
+        "id": 1,
+        "name": "Residence 1",
+        "address": "Tunis",
+        "image": "https://test.com/image1.jpg",
+        "status": "Disponible",
+        "locationShown": false
+      },
+      {
+        "id": 2,
+        "name": "Residence 2",
+        "address": "Sfax",
+        "image": "https://test.com/image2.jpg",
+        "status": "Disponible",
+        "locationShown": false
+      },
+      {
+        "id": 3,
+        "name": "Residence 3",
+        "address": "Tunis",
+        "image": "https://test.com/image3.jpg",
+        "status": "Vendu",
+        "locationShown": false
+      },
+      {
+        "id": 2605,
+        "name": "Test Residence",
+        "address": "Test Address",
+        "image": "https://test.com/image.jpg",
+        "status": "Disponible",
+        "locationShown": false
+      }
+    ],
+    "apartments": [
+      {
+        "id": 1,
+        "residenceId": 1,
+        "surface": 120,
+        "terrace": true,
+        "surfaceTerrace": 10
+      },
+      {
+        "id": 2,
+        "residenceId": 2,
+        "surface": 100,
+        "terrace": false,
+        "surfaceTerrace": 0
+      },
+      {
+        "id": 3,
+        "residenceId": 1,
+        "surface": 120,
+        "terrace": true,
+        "surfaceTerrace": 15
+      }
+    ]
+  }

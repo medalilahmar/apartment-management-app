@@ -3,6 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Apartment } from 'src/app/core/models/apartment';
 import { ApartmentsService } from 'src/app/services/apartments.service';
+import { CommonService } from 'src/app/core/Services/common.service';
+
 
 @Component({
   selector: 'app-apartments',
@@ -11,7 +13,14 @@ import { ApartmentsService } from 'src/app/services/apartments.service';
 })
 export class ApartmentsComponent implements OnInit {
 
-  constructor (private apartmentsService : ApartmentsService, private router : Router) {}
+  filteredApartments: any[] = [];
+  listApartments = [
+    { id: 1, surface: 120 },
+    { id: 2, surface: 100 },
+    { id: 3, surface: 120 },
+  ];
+
+  constructor (private apartmentsService : ApartmentsService, private router : Router,private commonService: CommonService) {}
 
     @ViewChild('f') myForm: NgForm | undefined; 
     apart! : Apartment ; 
@@ -19,6 +28,8 @@ export class ApartmentsComponent implements OnInit {
 
     ngOnInit(): void {
       this.apartments = this.apartmentsService.getApartments();
+      this.filteredApartments = this.commonService.getSameValueOf(this.listApartments, 'surface', 120);
+    console.log('Appartements avec surface 120m²:', this.filteredApartments);
     }
 
     addApartment(){

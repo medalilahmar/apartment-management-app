@@ -1,13 +1,19 @@
+<h1>Residences</h1>
+
 <div class="search-container">
   <input class="form-control search-input" type="search" placeholder="Filter par adresse" #filter aria-label="Search" (input)="filterResults(filter.value)">
 </div>
+
+<div *ngFor="let res of listResidencesFiltered">
+  <h5>{{ res.name }}</h5>
+  <p>{{ res.address }}</p>
 
 
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-4 col-sm-6 d-flex justify-content-center mb-4" *ngFor="let res of listResidencesFiltered">
       <div class="card residence-card">
-        <img src="{{res.image}}" alt="error" class="card-img-top">
+        <img [src]="res.image" alt="error" class="card-img-top">
         <div class="card-body text-center">
           <h5 class="card-title">{{res.name}}</h5>
           <p *ngIf="res.locationShown" class="card-text">{{res.address}}</p>
@@ -21,11 +27,12 @@
             <a (click)="ListApartments(res)" class="btn btn-primary">Apartments</a>
             <button (click)="ShowLocation(res.id)" class="btn btn-secondary">Show Location</button>
             <button (click)="LikeRes(res.id)" class="btn btn-secondary">Like</button>
+            <!-- Ajout du bouton de suppression -->
+            <button (click)="deleteResidence(res.id)" class="btn btn-danger">Supprimer</button>
           </div>
+          
         </div>
       </div>
-      
     </div>
   </div>
-
 </div>

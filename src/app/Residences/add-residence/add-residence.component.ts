@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { ResidenceService } from 'src/app/core/Services/residence.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-residence',
@@ -8,18 +11,15 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 })
 export class AddResidenceComponent implements OnInit {
   residenceForm: FormGroup;
+  residenceService: any;
+  router: any;
 
   constructor(private fb: FormBuilder) {
     this.residenceForm = this.fb.group({});
 
   }
 
-/*************  ✨ Codeium Command ⭐  *************/
-  /**
-   * Initializes the residence form with its default values
-   * and the required validators.
-   */
-/******  cb3cf982-d2b7-491b-9c08-02c4867535c4  *******/  ngOnInit(): void {
+ ngOnInit(): void {
     this.residenceForm = this.fb.group({
       id: [''],
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -57,8 +57,19 @@ export class AddResidenceComponent implements OnInit {
 
   onSubmit(): void {
     if (this.residenceForm.valid) {
-      const newResidence = this.residenceForm.value;
-      console.log(newResidence);
+      this.residenceService.addResidence(this.residenceForm.value).subscribe({
+        next: (response: any) => { // Déclarer 'response' comme 'any'
+          console.log('Résidence ajoutée avec succès !', response);
+          this.router.navigate(['/residences']);
+        },
+        error: (error: any) => { // Déclarer 'error' comme 'any'
+          console.error('Erreur lors de l\'ajout de la résidence :', error);
+        }
+      });
     }
   }
+  
+  
+  
+  
 }
